@@ -26,7 +26,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
-type ChatRoomProps = {};
+//next-js
+import Image from "next/image";
 
 // Define un converter para agregar el id al documento
 const converter = {
@@ -54,7 +55,7 @@ const converter = {
   },
 };
 
-const ChatRoom: React.FC<ChatRoomProps> = () => {
+const ChatRoom: React.FC = () => {
   const messagesRef = collection(firestore, "messages");
   const q = query(messagesRef, orderBy("createdAt"), limit(100)).withConverter(
     converter
@@ -111,7 +112,13 @@ const ChatRoom: React.FC<ChatRoomProps> = () => {
     <>
       <div className="bg-gray-300/50 fixed right-4 left-4 top-2 pr-2 py-2 rounded-md backdrop-blur-lg grow flex justify-between px-3">
         <div className="flex items-center gap-2">
-          <img src={photoURL} className="rounded-full h-7" alt="user" />
+          <Image
+            src={photoURL}
+            className="rounded-full"
+            width={28}
+            height={28}
+            alt="Avatar"
+          />
           <p>{userName}</p>
         </div>
         <button

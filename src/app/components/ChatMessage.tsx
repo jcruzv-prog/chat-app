@@ -9,6 +9,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
+//next-js
+import Image from "next/image";
+
 type ChatMessageProps = {
   text: string;
   photoURL?: string;
@@ -18,7 +21,7 @@ type ChatMessageProps = {
 };
 
 const ChatMessage: React.FC<ChatMessageProps> = ({
-  photoURL,
+  photoURL = "",
   text,
   userID,
   isPending,
@@ -37,7 +40,13 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
         isMessageOwner ? "justify-end" : "justify-start"
       } `}
     >
-      <img src={photoURL} className="rounded-full h-7" alt="user" />
+      <Image
+        src={photoURL}
+        width={28}
+        height={28}
+        className="rounded-full"
+        alt="user"
+      />
       <div
         className={`px-3 rounded-xl flex items-end gap-1.5 ${
           isMessageOwner ? "bg-blue-400" : "bg-white border-gray-400 border"
