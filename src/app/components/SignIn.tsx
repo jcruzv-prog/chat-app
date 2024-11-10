@@ -13,9 +13,7 @@ import { faLockOpen } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-type SignInProps = {};
-
-const SignIn: React.FC<SignInProps> = () => {
+const SignIn: React.FC = () => {
   const [user] = useAuthState(auth);
   const handleSignInWithGoogle = async () => {
     try {
