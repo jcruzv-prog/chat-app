@@ -105,7 +105,6 @@ const ChatRoom: React.FC = () => {
   const handleLogout = () => {
     signOut(auth);
   };
-  console.log(messages);
   const photoURL = user?.photoURL || "";
   const userName = user?.displayName || "Guest";
   return (
