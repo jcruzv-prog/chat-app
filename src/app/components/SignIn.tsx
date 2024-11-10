@@ -18,7 +18,6 @@ const SignIn: React.FC = () => {
   const handleSignInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      console.log("successfully authenticated with google");
     } catch (error) {
       console.log(`Error signing in with google: ${error}`);
     }
